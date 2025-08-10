@@ -100,6 +100,8 @@ input, textarea {
   border: 1px solid #b3c6e6;
   border-radius: 4px;
   font-size: 1rem;
+  min-height: 120px;
+  resize: vertical;
 }
 button[type="submit"] {
   background: #1565c0;
