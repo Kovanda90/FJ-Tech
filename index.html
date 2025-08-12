@@ -65,14 +65,66 @@
     </section>
 
     <section id="fotogalerie">
-      <h2>Fotogalerie</h2>
-      <div class="gallery">
-        <img src="Foto/man-8689628_1280.jpg" alt="Instalatér při práci – Jakub Foukal Chrudim">
-        <img src="Foto/thermometer-5372016_1280.jpg" alt="Topenářské práce – montáž topení Chrudim">
-        <img src="Foto/battery-8519101_1280.png" alt="Montáž zařizovacích předmětů – koupelna, kuchyně">
-        <img src="Foto/foto.jpg" alt="Ukázka práce – instalatér Jakub Foukal Chrudim">
+      <h2>Fotogalerie prací</h2>
+      <div class="gallery-categories">
+        <div class="category" data-category="cerpadlo">
+          <img src="Foto/cerpadlo/cerpadlo.jpeg" alt="Čerpadlo - instalatérské práce">
+          <h3>Čerpadlo</h3>
+          <p>2 fotografie</p>
+        </div>
+        <div class="category" data-category="podlahovka-deska">
+          <img src="Foto/podlahovka deska/podlahovka.jpeg" alt="Podlahovka deska - topenářské práce">
+          <h3>Podlahovka deska</h3>
+          <p>14 fotografií</p>
+        </div>
+        <div class="category" data-category="podlahovka-sucha">
+          <img src="Foto/podlahovka sucha/podlahovka sucha.jpeg" alt="Podlahovka suchá - topenářské práce">
+          <h3>Podlahovka suchá</h3>
+          <p>1 fotografie</p>
+        </div>
+        <div class="category" data-category="pripojka">
+          <img src="Foto/pripojka/pripojka.jpeg" alt="Připojka - instalatérské práce">
+          <h3>Připojka</h3>
+          <p>4 fotografie</p>
+        </div>
+        <div class="category" data-category="rozvody-vody">
+          <img src="Foto/rozvody vody/rozvody.jpeg" alt="Rozvody vody - instalatérské práce">
+          <h3>Rozvody vody</h3>
+          <p>16 fotografií</p>
+        </div>
+        <div class="category" data-category="stoupacky">
+          <img src="Foto/stoupacky/stoupacky.jpeg" alt="Stoupačky - instalatérské práce">
+          <h3>Stoupačky</h3>
+          <p>2 fotografie</p>
+        </div>
+        <div class="category" data-category="vybaveni">
+          <img src="Foto/vybaveni/vybaveni.jpeg" alt="Vybavení - instalatérské práce">
+          <h3>Vybavení</h3>
+          <p>4 fotografie</p>
+        </div>
       </div>
     </section>
+
+    <!-- Lightbox pro detailní galerie -->
+    <div id="lightbox" class="lightbox">
+      <div class="lightbox-content">
+        <span class="close-lightbox">&times;</span>
+        <div class="lightbox-header">
+          <h3 id="lightbox-title"></h3>
+          <div class="lightbox-counter">
+            <span id="current-photo">1</span> / <span id="total-photos">1</span>
+          </div>
+        </div>
+        <div class="lightbox-image-container">
+          <button class="nav-btn prev-btn">&lt;</button>
+          <img id="lightbox-image" src="" alt="">
+          <button class="nav-btn next-btn">&gt;</button>
+        </div>
+        <div class="lightbox-thumbnails" id="lightbox-thumbnails">
+          <!-- Náhledy fotografií se načtou dynamicky -->
+        </div>
+      </div>
+    </div>
 
     <section id="reference">
       <h2>Reference zákazníků</h2>
