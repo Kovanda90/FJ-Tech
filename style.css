@@ -23,10 +23,12 @@ header {
 }
 
 .header-logo {
-  height: 80px;
+  height: 60px;
   width: auto;
-  filter: brightness(0) invert(1); /* Zajistí, že logo bude bílé na modrém pozadí */
+  max-width: 120px;
+  object-fit: contain;
   transition: transform 0.3s ease;
+  /* Odstraněn problematický filtr */
 }
 
 .header-logo:hover {
@@ -41,13 +43,13 @@ header {
 
 .header-text h1 {
   margin: 0 0 1rem 0;
-  font-size: 2.2rem;
+  font-size: 2rem;
   line-height: 1.2;
 }
 
 .header-text p {
   margin: 0;
-  font-size: 1.1rem;
+  font-size: 1rem;
   line-height: 1.4;
   opacity: 0.95;
 }
@@ -482,6 +484,26 @@ footer {
   }
 }
 
+/* Responzivní design pro header s logem */
+@media (max-width: 900px) {
+  .header-content {
+    gap: 1.5rem;
+  }
+  
+  .header-logo {
+    height: 50px;
+    max-width: 100px;
+  }
+  
+  .header-text h1 {
+    font-size: 1.8rem;
+  }
+  
+  .header-text p {
+    font-size: 1rem;
+  }
+}
+
 @media (max-width: 700px) {
   .gallery-categories {
     grid-template-columns: 1fr;
@@ -517,7 +539,7 @@ footer {
   .header-content {
     flex-direction: column;
     text-align: center;
-    gap: 1.5rem;
+    gap: 1rem;
   }
   
   .header-text {
@@ -525,14 +547,15 @@ footer {
   }
   
   .header-logo {
-    height: 60px;
+    height: 40px;
+    max-width: 80px;
   }
   
   .header-text h1 {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
   }
   
   .header-text p {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 } 
