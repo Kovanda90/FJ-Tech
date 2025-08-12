@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const closeBtn = document.querySelector('.close-lightbox');
   const prevBtn = document.querySelector('.prev-btn');
   const nextBtn = document.querySelector('.next-btn');
+  const lightboxImageContainer = document.getElementById('lightbox-image-container'); // Nový prvek pro obal pro oba typy médií
 
   let currentCategory = '';
   let currentPhotos = [];
@@ -52,7 +53,8 @@ document.addEventListener('DOMContentLoaded', function() {
       'Foto/podlahovka deska/podlahovka14.jpeg'
     ],
     'podlahovka-sucha': [
-      'Foto/podlahovka sucha/podlahovka sucha.jpeg'
+      'Foto/podlahovka sucha/podlahovka sucha.jpeg',
+      'Foto/podlahovka sucha/podlahovka sucha video.mp4'
     ],
     'pripojka': [
       'Foto/pripojka/pripojka.jpeg',
@@ -90,6 +92,15 @@ document.addEventListener('DOMContentLoaded', function() {
     ]
   };
 
+  // Funkce pro zjištění typu média
+  function getMediaType(filePath) {
+    const extension = filePath.split('.').pop().toLowerCase();
+    if (['mp4', 'avi', 'mov', 'wmv', 'flv', 'webm'].includes(extension)) {
+      return 'video';
+    }
+    return 'image';
+  }
+
   // Otevření galerie kategorie
   categories.forEach(category => {
     category.addEventListener('click', function() {
@@ -118,27 +129,99 @@ document.addEventListener('DOMContentLoaded', function() {
     document.body.style.overflow = 'hidden';
   }
 
-  // Zobrazení aktuální fotky
+  // Zobrazení aktuální fotky nebo videa
   function showCurrentPhoto() {
     if (currentPhotos.length > 0) {
-      lightboxImage.src = currentPhotos[currentPhotoIndex];
+      const currentMedia = currentPhotos[currentPhotoIndex];
+      const mediaType = getMediaType(currentMedia);
+      
+      // Skryjeme předchozí obsah
+      lightboxImage.style.display = 'none';
+      
+      // Vytvoříme nebo zobrazíme video element
+      let videoElement = lightboxImageContainer.querySelector('video');
+      if (mediaType === 'video') {
+        if (!videoElement) {
+          videoElement = document.createElement('video');
+          videoElement.controls = true;
+          videoElement.autoplay = false;
+          videoElement.className = 'video-container';
+          lightboxImageContainer.appendChild(videoElement);
+        }
+        videoElement.src = currentMedia;
+        videoElement.style.display = 'block';
+        lightboxImage.style.display = 'none';
+        
+        // Přidáme indikátor typu média
+        addMediaTypeIndicator('Video');
+      } else {
+        if (videoElement) {
+          videoElement.style.display = 'none';
+        }
+        lightboxImage.src = currentMedia;
+        lightboxImage.style.display = 'block';
+        
+        // Přidáme indikátor typu média
+        addMediaTypeIndicator('Fotografie');
+      }
+      
       currentPhoto.textContent = currentPhotoIndex + 1;
       updateThumbnailActive();
     }
   }
 
-  // Vytvoření náhledů
+  // Přidání indikátoru typu média
+  function addMediaTypeIndicator(type) {
+    // Odstraníme předchozí indikátor
+    const existingIndicator = lightboxImageContainer.querySelector('.media-type-indicator');
+    if (existingIndicator) {
+      existingIndicator.remove();
+    }
+    
+    const indicator = document.createElement('div');
+    indicator.className = 'media-type-indicator';
+    indicator.textContent = type;
+    lightboxImageContainer.appendChild(indicator);
+  }
+
+  // Vytvoření náhledů s rozlišením typu média
   function createThumbnails() {
     lightboxThumbnails.innerHTML = '';
     
-    currentPhotos.forEach((photo, index) => {
-      const thumb = document.createElement('img');
-      thumb.src = photo;
-      thumb.alt = `Náhled ${index + 1}`;
+    currentPhotos.forEach((media, index) => {
+      const thumb = document.createElement('div');
+      thumb.className = 'thumbnail-container';
+      
+      const mediaType = getMediaType(media);
+      
+      if (mediaType === 'video') {
+        // Náhled pro video
+        const videoThumb = document.createElement('video');
+        videoThumb.src = media;
+        videoThumb.className = 'video-thumbnail';
+        videoThumb.muted = true;
+        videoThumb.preload = 'metadata';
+        
+        const videoIcon = document.createElement('div');
+        videoIcon.className = 'video-thumb-icon';
+        videoIcon.innerHTML = '🎥';
+        
+        thumb.appendChild(videoThumb);
+        thumb.appendChild(videoIcon);
+      } else {
+        // Náhled pro fotku
+        const imgThumb = document.createElement('img');
+        imgThumb.src = media;
+        imgThumb.alt = `Náhled ${index + 1}`;
+        imgThumb.className = 'image-thumbnail';
+        thumb.appendChild(imgThumb);
+      }
+      
       thumb.addEventListener('click', () => {
         currentPhotoIndex = index;
         showCurrentPhoto();
       });
+      
       lightboxThumbnails.appendChild(thumb);
     });
     
@@ -147,7 +230,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Aktualizace aktivního náhledu
   function updateThumbnailActive() {
-    const thumbs = lightboxThumbnails.querySelectorAll('img');
+    const thumbs = lightboxThumbnails.querySelectorAll('.thumbnail-container');
     thumbs.forEach((thumb, index) => {
       thumb.classList.toggle('active', index === currentPhotoIndex);
     });

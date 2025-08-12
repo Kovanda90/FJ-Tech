@@ -13,6 +13,45 @@ header {
   text-align: center;
 }
 
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header-logo {
+  height: 80px;
+  width: auto;
+  filter: brightness(0) invert(1); /* Zajistí, že logo bude bílé na modrém pozadí */
+  transition: transform 0.3s ease;
+}
+
+.header-logo:hover {
+  transform: scale(1.05);
+}
+
+.header-text {
+  text-align: left;
+  flex: 1;
+  max-width: 600px;
+}
+
+.header-text h1 {
+  margin: 0 0 1rem 0;
+  font-size: 2.2rem;
+  line-height: 1.2;
+}
+
+.header-text p {
+  margin: 0;
+  font-size: 1.1rem;
+  line-height: 1.4;
+  opacity: 0.95;
+}
+
 nav {
   background: #fff;
   box-shadow: 0 2px 4px rgba(21,101,192,0.05);
@@ -193,6 +232,56 @@ footer {
   font-size: 0.9rem;
 }
 
+.category-media {
+  position: relative;
+}
+
+.video-indicator {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(21,101,192,0.9);
+  color: white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(5px);
+}
+
+.video-icon {
+  font-size: 1.2rem;
+}
+
+/* Video styly v lightboxu */
+.video-container {
+  max-width: 100%;
+  max-height: 60vh;
+  margin: 0 auto;
+}
+
+.video-container video {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+
+.media-type-indicator {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: rgba(21,101,192,0.9);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  backdrop-filter: blur(5px);
+}
+
 /* Lightbox styly */
 .lightbox {
   display: none;
@@ -317,6 +406,57 @@ footer {
   border-color: #1565c0;
 }
 
+/* Náhledy s videem */
+.thumbnail-container {
+  position: relative;
+  cursor: pointer;
+}
+
+.video-thumbnail {
+  width: 80px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 2px solid transparent;
+  transition: border-color 0.3s;
+}
+
+.image-thumbnail {
+  width: 80px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 2px solid transparent;
+  transition: border-color 0.3s;
+}
+
+.video-thumbnail:hover,
+.image-thumbnail:hover,
+.thumbnail-container:hover .video-thumbnail,
+.thumbnail-container:hover .image-thumbnail {
+  border-color: #1565c0;
+}
+
+.thumbnail-container.active .video-thumbnail,
+.thumbnail-container.active .image-thumbnail {
+  border-color: #1565c0;
+}
+
+.video-thumb-icon {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: rgba(21,101,192,0.9);
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+}
+
 /* Responzivní design pro lightbox */
 @media (max-width: 768px) {
   .lightbox-content {
@@ -371,5 +511,28 @@ footer {
   }
   .contact-details {
     text-align: center;
+  }
+  
+  /* Responzivní design pro header s logem */
+  .header-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
+  
+  .header-text {
+    text-align: center;
+  }
+  
+  .header-logo {
+    height: 60px;
+  }
+  
+  .header-text h1 {
+    font-size: 1.8rem;
+  }
+  
+  .header-text p {
+    font-size: 1rem;
   }
 } 
