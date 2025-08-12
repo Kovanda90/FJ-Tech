@@ -23,9 +23,9 @@ header {
 }
 
 .header-logo {
-  height: 60px;
+  height: 80px;
   width: auto;
-  max-width: 120px;
+  max-width: 140px;
   object-fit: contain;
   transition: transform 0.3s ease;
   /* Odstraněn problematický filtr */
@@ -499,11 +499,12 @@ footer {
 @media (max-width: 900px) {
   .header-content {
     gap: 1.5rem;
+    /* Logo zůstává vedle textu */
   }
   
   .header-logo {
-    height: 50px;
-    max-width: 100px;
+    height: 65px;
+    max-width: 110px;
   }
   
   .header-text h1 {
@@ -548,22 +549,24 @@ footer {
   
   /* Responzivní design pro header s logem */
   .header-content {
-    flex-direction: column;
-    text-align: center;
-    gap: 1rem;
+    flex-direction: row; /* Logo zůstává vedle textu */
+    text-align: left;
+    gap: 1.5rem;
+    align-items: center;
   }
   
   .header-text {
-    text-align: center;
+    text-align: left;
   }
   
   .header-logo {
-    height: 40px;
-    max-width: 80px;
+    height: 55px;
+    max-width: 90px;
   }
   
   .header-text h1 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+    margin: 0 0 0.5rem 0;
   }
   
   .header-text p {
