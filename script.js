@@ -23,7 +23,24 @@ document.addEventListener('DOMContentLoaded', function() {
   const closeBtn = document.querySelector('.close-lightbox');
   const prevBtn = document.querySelector('.prev-btn');
   const nextBtn = document.querySelector('.next-btn');
-  const lightboxImageContainer = document.getElementById('lightbox-image-container'); // Nový prvek pro obal pro oba typy médií
+  const lightboxImageContainer = document.getElementById('lightbox-image-container');
+
+  // Kontrola, zda jsou všechny elementy nalezeny
+  if (!lightbox || !lightboxImage || !lightboxTitle || !currentPhoto || !totalPhotos || !lightboxThumbnails || !closeBtn || !prevBtn || !nextBtn || !lightboxImageContainer) {
+    console.error('Některé lightbox elementy nebyly nalezeny:', {
+      lightbox: !!lightbox,
+      lightboxImage: !!lightboxImage,
+      lightboxTitle: !!lightboxTitle,
+      currentPhoto: !!currentPhoto,
+      totalPhotos: !!totalPhotos,
+      lightboxThumbnails: !!lightboxThumbnails,
+      closeBtn: !!closeBtn,
+      prevBtn: !!prevBtn,
+      nextBtn: !!nextBtn,
+      lightboxImageContainer: !!lightboxImageContainer
+    });
+    return;
+  }
 
   let currentCategory = '';
   let currentPhotos = [];
@@ -104,11 +121,15 @@ document.addEventListener('DOMContentLoaded', function() {
   // Otevření galerie kategorie
   categories.forEach(category => {
     category.addEventListener('click', function() {
+      console.log('Kliknuto na kategorii:', this.getAttribute('data-category'));
       const categoryName = this.getAttribute('data-category');
       const categoryTitle = this.querySelector('h3').textContent;
       
       if (categoryPhotos[categoryName] && categoryPhotos[categoryName].length > 0) {
+        console.log('Otevírám lightbox pro:', categoryName, 's', categoryPhotos[categoryName].length, 'fotkami');
         openLightbox(categoryName, categoryTitle);
+      } else {
+        console.error('Kategorie nenalezena nebo nemá fotky:', categoryName);
       }
     });
   });
