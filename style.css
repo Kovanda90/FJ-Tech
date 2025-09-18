@@ -90,6 +90,11 @@ h2 {
   color: #1565c0;
   margin-top: 0;
 }
+h3 {
+  color: #1565c0;
+  margin: 1.5rem 0 1rem 0;
+  font-size: 1.3rem;
+}
 .services-list {
   padding-left: 1.2rem;
 }
