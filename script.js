@@ -14,9 +14,12 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Kategorizovaná galerie
+  // Hlavní kategorie galerie
+  const mainCategory = document.querySelector('.main-category');
+  const subCategories = document.getElementById('sub-categories');
   const categories = document.querySelectorAll('.category');
-  console.log('Nalezeno kategorií:', categories.length);
+  console.log('Nalezeno hlavních kategorií:', mainCategory ? 1 : 0);
+  console.log('Nalezeno podkategorií:', categories.length);
   
   const lightbox = document.getElementById('lightbox');
   const lightboxImage = document.getElementById('lightbox-image');
@@ -118,6 +121,25 @@ document.addEventListener('DOMContentLoaded', function() {
       return 'video';
     }
     return 'image';
+  }
+
+  // Event listener pro hlavní kategorii
+  if (mainCategory) {
+    mainCategory.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      console.log('Klik na hlavní kategorii');
+      
+      if (subCategories.style.display === 'none' || subCategories.style.display === '') {
+        subCategories.style.display = 'grid';
+        mainCategory.style.background = '#e3eafc';
+        mainCategory.querySelector('h3').textContent = 'Fotogalerie (rozbaleno)';
+      } else {
+        subCategories.style.display = 'none';
+        mainCategory.style.background = '#f8f9fa';
+        mainCategory.querySelector('h3').textContent = 'Fotogalerie';
+      }
+    });
   }
 
   // Otevření galerie kategorie
