@@ -52,63 +52,63 @@ document.addEventListener('DOMContentLoaded', function() {
   // Data o fotografiích v jednotlivých kategoriích
   const categoryPhotos = {
     'cerpadlo': [
-      'Foto/cerpadlo/cerpadlo.jpeg',
-      'Foto/cerpadlo/cerpadlo1.jpeg'
+      'Foto/Osazení čerpadla do vrtaných studní v rodinných domech/cerpadlo.jpeg',
+      'Foto/Osazení čerpadla do vrtaných studní v rodinných domech/cerpadlo1.jpeg'
     ],
     'podlahovka-deska': [
-      'Foto/podlahovka deska/podlahovka.jpeg',
-      'Foto/podlahovka deska/podlahovka1.jpeg',
-      'Foto/podlahovka deska/podlahovka2.jpeg',
-      'Foto/podlahovka deska/podlahovka3.jpeg',
-      'Foto/podlahovka deska/podlahovka4.jpeg',
-      'Foto/podlahovka deska/podlahovka5.jpeg',
-      'Foto/podlahovka deska/podlahovka6.jpeg',
-      'Foto/podlahovka deska/podlahovka7.jpeg',
-      'Foto/podlahovka deska/podlahovka8.jpeg',
-      'Foto/podlahovka deska/podlahovka9.jpeg',
-      'Foto/podlahovka deska/podlahovka10.jpeg',
-      'Foto/podlahovka deska/podlahovka11.jpeg',
-      'Foto/podlahovka deska/podlahovka12.jpeg',
-      'Foto/podlahovka deska/podlahovka13.jpeg',
-      'Foto/podlahovka deska/podlahovka14.jpeg'
+      'Foto/Montáž podlahového vytápění s pokládkou systémové desky v rodinném domě/podlahovka.jpeg',
+      'Foto/Montáž podlahového vytápění s pokládkou systémové desky v rodinném domě/podlahovka1.jpeg',
+      'Foto/Montáž podlahového vytápění s pokládkou systémové desky v rodinném domě/podlahovka2.jpeg',
+      'Foto/Montáž podlahového vytápění s pokládkou systémové desky v rodinném domě/podlahovka3.jpeg',
+      'Foto/Montáž podlahového vytápění s pokládkou systémové desky v rodinném domě/podlahovka4.jpeg',
+      'Foto/Montáž podlahového vytápění s pokládkou systémové desky v rodinném domě/podlahovka5.jpeg',
+      'Foto/Montáž podlahového vytápění s pokládkou systémové desky v rodinném domě/podlahovka6.jpeg',
+      'Foto/Montáž podlahového vytápění s pokládkou systémové desky v rodinném domě/podlahovka7.jpeg',
+      'Foto/Montáž podlahového vytápění s pokládkou systémové desky v rodinném domě/podlahovka8.jpeg',
+      'Foto/Montáž podlahového vytápění s pokládkou systémové desky v rodinném domě/podlahovka9.jpeg',
+      'Foto/Montáž podlahového vytápění s pokládkou systémové desky v rodinném domě/podlahovka10.jpeg',
+      'Foto/Montáž podlahového vytápění s pokládkou systémové desky v rodinném domě/podlahovka11.jpeg',
+      'Foto/Montáž podlahového vytápění s pokládkou systémové desky v rodinném domě/podlahovka12.jpeg',
+      'Foto/Montáž podlahového vytápění s pokládkou systémové desky v rodinném domě/podlahovka13.jpeg',
+      'Foto/Montáž podlahového vytápění s pokládkou systémové desky v rodinném domě/podlahovka14.jpeg'
     ],
     'podlahovka-sucha': [
-      'Foto/podlahovka sucha/podlahovka sucha.jpeg',
-      'Foto/podlahovka sucha/podlahovka sucha video.mp4'
+      'Foto/Montáž podlahového vytápení v původních vestavbách - suchá instalace bez betonu/podlahovka sucha.jpeg',
+      'Foto/Montáž podlahového vytápení v původních vestavbách - suchá instalace bez betonu/podlahovka sucha video.mp4'
     ],
     'pripojka': [
-      'Foto/pripojka/pripojka.jpeg',
-      'Foto/pripojka/pripojka1.jpeg',
-      'Foto/pripojka/pripojka2.jpeg',
-      'Foto/pripojka/pripojka3.jpeg'
+      'Foto/Kanalizační a vodovodní přípojka k rodinnému domu/pripojka.jpeg',
+      'Foto/Kanalizační a vodovodní přípojka k rodinnému domu/pripojka1.jpeg',
+      'Foto/Kanalizační a vodovodní přípojka k rodinnému domu/pripojka2.jpeg',
+      'Foto/Kanalizační a vodovodní přípojka k rodinnému domu/pripojka3.jpeg'
     ],
     'rozvody-vody': [
-      'Foto/rozvody vody/rozvody.jpeg',
-      'Foto/rozvody vody/rozvody1.jpeg',
-      'Foto/rozvody vody/rozvody2.jpeg',
-      'Foto/rozvody vody/rozvody3.jpeg',
-      'Foto/rozvody vody/rozvody4.jpeg',
-      'Foto/rozvody vody/rozvody5.jpeg',
-      'Foto/rozvody vody/rozvody6.jpeg',
-      'Foto/rozvody vody/rozvody7.jpeg',
-      'Foto/rozvody vody/rozvody8.jpeg',
-      'Foto/rozvody vody/rozvody9.jpeg',
-      'Foto/rozvody vody/rozvody10.jpeg',
-      'Foto/rozvody vody/rozvody11.jpeg',
-      'Foto/rozvody vody/rozvody12.jpeg',
-      'Foto/rozvody vody/rozvody13.jpeg',
-      'Foto/rozvody vody/rozvody14.jpeg',
-      'Foto/rozvody vody/rozvody15.jpeg'
+      'Foto/Hrubé rozvody vody a kanalizace v rodinném domě/rozvody.jpeg',
+      'Foto/Hrubé rozvody vody a kanalizace v rodinném domě/rozvody1.jpeg',
+      'Foto/Hrubé rozvody vody a kanalizace v rodinném domě/rozvody2.jpeg',
+      'Foto/Hrubé rozvody vody a kanalizace v rodinném domě/rozvody3.jpeg',
+      'Foto/Hrubé rozvody vody a kanalizace v rodinném domě/rozvody4.jpeg',
+      'Foto/Hrubé rozvody vody a kanalizace v rodinném domě/rozvody5.jpeg',
+      'Foto/Hrubé rozvody vody a kanalizace v rodinném domě/rozvody6.jpeg',
+      'Foto/Hrubé rozvody vody a kanalizace v rodinném domě/rozvody7.jpeg',
+      'Foto/Hrubé rozvody vody a kanalizace v rodinném domě/rozvody8.jpeg',
+      'Foto/Hrubé rozvody vody a kanalizace v rodinném domě/rozvody9.jpeg',
+      'Foto/Hrubé rozvody vody a kanalizace v rodinném domě/rozvody10.jpeg',
+      'Foto/Hrubé rozvody vody a kanalizace v rodinném domě/rozvody11.jpeg',
+      'Foto/Hrubé rozvody vody a kanalizace v rodinném domě/rozvody12.jpeg',
+      'Foto/Hrubé rozvody vody a kanalizace v rodinném domě/rozvody13.jpeg',
+      'Foto/Hrubé rozvody vody a kanalizace v rodinném domě/rozvody14.jpeg',
+      'Foto/Hrubé rozvody vody a kanalizace v rodinném domě/rozvody15.jpeg'
     ],
     'stoupacky': [
-      'Foto/stoupacky/stoupacky.jpeg',
-      'Foto/stoupacky/stoupacky1.jpeg'
+      'Foto/Změna pozice stoupacího potrubí topení v panelákovém domě/stoupacky.jpeg',
+      'Foto/Změna pozice stoupacího potrubí topení v panelákovém domě/stoupacky1.jpeg'
     ],
     'vybaveni': [
-      'Foto/vybaveni/vybaveni.jpeg',
-      'Foto/vybaveni/vybaveni1.jpeg',
-      'Foto/vybaveni/vybaveni2.jpeg',
-      'Foto/vybaveni/vybaveni3.jpeg'
+      'Foto/Vybavení malometrážních bytů/vybaveni.jpeg',
+      'Foto/Vybavení malometrážních bytů/vybaveni1.jpeg',
+      'Foto/Vybavení malometrážních bytů/vybaveni2.jpeg',
+      'Foto/Vybavení malometrážních bytů/vybaveni3.jpeg'
     ]
   };
 
