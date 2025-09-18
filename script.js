@@ -317,4 +317,46 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
   });
+
+  // Lightbox pro profilovou fotku
+  const profilePhoto = document.querySelector('.profile-photo');
+  if (profilePhoto) {
+    profilePhoto.addEventListener('click', function() {
+      console.log('Klik na profilovou fotku');
+      
+      // Vytvoříme dočasný lightbox pro profilovou fotku
+      const profileLightbox = document.createElement('div');
+      profileLightbox.className = 'profile-lightbox';
+      profileLightbox.innerHTML = `
+        <div class="profile-lightbox-content">
+          <span class="close-profile-lightbox">&times;</span>
+          <img src="${profilePhoto.src}" alt="Profilová fotka Jakub Foukal - zvětšená" class="profile-lightbox-image">
+        </div>
+      `;
+      
+      document.body.appendChild(profileLightbox);
+      
+      // Zavření lightboxu
+      const closeBtn = profileLightbox.querySelector('.close-profile-lightbox');
+      closeBtn.addEventListener('click', function() {
+        document.body.removeChild(profileLightbox);
+      });
+      
+      // Zavření kliknutím mimo obrázek
+      profileLightbox.addEventListener('click', function(e) {
+        if (e.target === profileLightbox) {
+          document.body.removeChild(profileLightbox);
+        }
+      });
+      
+      // Zavření klávesou ESC
+      const handleEscape = function(e) {
+        if (e.key === 'Escape') {
+          document.body.removeChild(profileLightbox);
+          document.removeEventListener('keydown', handleEscape);
+        }
+      };
+      document.addEventListener('keydown', handleEscape);
+    });
+  }
 }); 
