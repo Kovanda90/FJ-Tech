@@ -205,7 +205,29 @@
   </footer>
 
   <script src="script.js"></script>
+  
+  <script>
+document.addEventListener('DOMContentLoaded', function () {
+  const form = document.querySelector('form[action^="https://formspree.io"]');
+  if (!form) return;
+
+  const handler = function () {
+    try {
+      gtag('event', 'conversion', {
+        send_to: 'AW-17694104740/pWSxCNi7v7cbERK5smvVB',
+        transport_type: 'beacon',
+        event_timeout: 2000
+      });
+    } catch(e) {}
+    return true;
+  };
+
+  form.addEventListener('submit', handler, { once: true });
+});
+</script>
+
 </body>
 
 </html> 
+
 
