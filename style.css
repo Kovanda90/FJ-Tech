@@ -50,30 +50,45 @@ header {
 
 .phone-link {
   display: flex;
+  flex-direction: row;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.6rem;
   color: #fff;
   text-decoration: none;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 500;
-  padding: 0.5rem 1rem;
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 8px;
+  padding: 0.7rem 1.2rem;
+  background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+  border-radius: 10px;
   transition: all 0.3s ease;
   white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
 }
 
 .phone-link:hover {
-  background: rgba(255, 255, 255, 0.25);
+  background: linear-gradient(135deg, #45a049 0%, #3d8b40 100%);
   transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(76, 175, 80, 0.4);
+}
+
+.phone-cta {
+  font-size: 0.85rem;
+  font-weight: 600;
+  opacity: 0.95;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
 }
 
 .phone-icon {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
+  /* Emoji ikona bude bílá díky invert filtru, ale pozadí je zelené */
 }
 
 .phone-number {
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
 }
 
 .header-text h1 {
@@ -632,11 +647,65 @@ footer {
   }
   
   .phone-link {
-    font-size: 1rem;
+    font-size: 0.95rem;
+    padding: 0.8rem 1.3rem;
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+  
+  .phone-cta {
+    font-size: 0.8rem;
+  }
+  
+  .phone-icon {
+    font-size: 1.3rem;
+  }
+  
+  .phone-number {
+    font-size: 1.05rem;
   }
 }
 
 @media (max-width: 700px) {
+  .header-content {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  .header-logo {
+    justify-self: center;
+  }
+  
+  .header-text {
+    justify-self: center;
+  }
+  
+  .header-phone {
+    justify-content: center;
+    justify-self: center;
+    margin-top: 0.5rem;
+  }
+  
+  .phone-link {
+    font-size: 1rem;
+    padding: 0.9rem 1.5rem;
+    flex-direction: row;
+    gap: 0.6rem;
+  }
+  
+  .phone-cta {
+    font-size: 0.85rem;
+  }
+  
+  .phone-icon {
+    font-size: 1.5rem;
+  }
+  
+  .phone-number {
+    font-size: 1.15rem;
+  }
+  
   .gallery-categories {
     grid-template-columns: 1fr;
     gap: 1.5rem;
@@ -810,5 +879,123 @@ footer {
     width: 30px;
     height: 30px;
     font-size: 1.2rem;
+  }
+  
+  .phone-link {
+    padding: 0.9rem 1.5rem;
+  }
+  
+  .phone-cta {
+    font-size: 0.9rem;
+  }
+  
+  .phone-number {
+    font-size: 1.2rem;
+  }
+}
+
+/* Floating telefonní tlačítko */
+.floating-phone-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+  color: #fff;
+  text-decoration: none;
+  padding: 1rem 1.5rem;
+  border-radius: 50px;
+  box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+  z-index: 999;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  animation: pulse 2s infinite;
+}
+
+.floating-phone-btn:hover {
+  background: linear-gradient(135deg, #45a049 0%, #3d8b40 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(76, 175, 80, 0.5);
+}
+
+.floating-phone-icon {
+  font-size: 1.8rem;
+  filter: brightness(0) invert(1);
+}
+
+.floating-phone-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.3;
+}
+
+.floating-phone-cta {
+  font-size: 0.85rem;
+  font-weight: 600;
+  opacity: 0.95;
+}
+
+.floating-phone-number {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+/* Animace pulzování */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+  }
+  50% {
+    box-shadow: 0 6px 25px rgba(76, 175, 80, 0.6);
+  }
+  100% {
+    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+  }
+}
+
+/* Responzivní úpravy pro floating tlačítko */
+@media (max-width: 768px) {
+  .floating-phone-btn {
+    bottom: 15px;
+    right: 15px;
+    padding: 0.9rem 1.3rem;
+    border-radius: 45px;
+  }
+  
+  .floating-phone-icon {
+    font-size: 1.6rem;
+  }
+  
+  .floating-phone-cta {
+    font-size: 0.8rem;
+  }
+  
+  .floating-phone-number {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .floating-phone-btn {
+    bottom: 12px;
+    right: 12px;
+    padding: 0.85rem 1.2rem;
+    gap: 0.7rem;
+  }
+  
+  .floating-phone-icon {
+    font-size: 1.5rem;
+  }
+  
+  .floating-phone-cta {
+    font-size: 0.75rem;
+  }
+  
+  .floating-phone-number {
+    font-size: 0.95rem;
   }
 } 
